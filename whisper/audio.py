@@ -51,6 +51,7 @@ def load_audio(file: str, sr: int = SAMPLE_RATE):
         "-ac", "1",
         "-acodec", "pcm_s16le",
         "-ar", str(sr),
+        '-af', "silenceremove=start_periods=1:stop_periods=-1:start_threshold=-50dB:stop_threshold=-50dB:start_silence=0.1:stop_silence=0.1, loudnorm",
         "-"
     ]
     # fmt: on
